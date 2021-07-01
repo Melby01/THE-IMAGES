@@ -7,10 +7,13 @@ def welcome(request):
 
 def image_of_day(request):
     date = dt.date.today()
+    
+    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
+    day = convert_dates(date)
     html = f'''
         <html>
             <body>
-                <h1>Image for today ;{date.day}-{date.month}-{date.year}</h1>
+                <h1>Image for {day} {date.day}-{date.month}-{date.year}</h1>
             </body>
         </html>
             '''
