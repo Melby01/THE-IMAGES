@@ -1,6 +1,6 @@
 from django.http  import HttpResponse,Http404
 import datetime as dt
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 def welcome(request):
@@ -8,6 +8,8 @@ def welcome(request):
 
 def image_of_day(request):
     date = dt.date.today()
+    
+    return render(request, 'all-images/today-image.html', {"date": date,})
     
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     day = convert_dates(date)
@@ -39,6 +41,11 @@ def past_image(request,past_date):
     except ValueError:
         # Raise 404 error when ValueError is thrown
         raise Http404()
+        assert False
+        
+    if date == dt.date.today():
+        return redirect(image_of_day)
+    
         # Converts data from the string Url
     date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
     day = convert_dates(date)
