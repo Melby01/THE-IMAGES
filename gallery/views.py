@@ -8,15 +8,12 @@ def welcome(request):
 
 def image_of_day(request):
     date = dt.date.today()
-    
     return render(request, 'all-images/today-image.html', {"date": date,})
-    
-    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     day = convert_dates(date)
     html = f'''
         <html>
             <body>
-                <h1>Image for {day} {date.day}-{date.month}-{date.year}</h1>
+                <h1>Images for {day} {date.day}-{date.month}-{date.year}</h1>
             </body>
         </html>
             '''
@@ -53,7 +50,7 @@ def past_image(request,past_date):
     html = f'''
         <html>
             <body>
-                <h1>News for {day} {date.day}-{date.month}-{date.year}</h1>
+                <h1>Image for {day} {date.day}-{date.month}-{date.year}</h1>
             </body>
         </html>
             '''
