@@ -11,8 +11,6 @@ class Image(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     Images_image = models.ImageField(upload_to = 'images/')
     
-
-    
     def save_image(self):
         self.save()
     
