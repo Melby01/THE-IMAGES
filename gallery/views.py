@@ -19,7 +19,7 @@ def index(request):
     context = {
         "images":images,
         "location":location,
-        "categorie": categories,
+        "category": categories,
     }
     
     return render(request, 'all-images/welcome.html', context)
@@ -86,3 +86,13 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-news/search.html',{"message":message})
+    
+def view_image(request,image_id):
+    '''
+    Method to get image by id
+    '''
+    try:
+        image = Image.objects.get(id =  image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request, "all-images/view.html", {"image":image})
