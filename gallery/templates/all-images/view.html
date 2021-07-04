@@ -1,0 +1,29 @@
+{% include 'all-images/base.html' %}
+{% block content %}
+<section id="gallery">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <img src="{{image.Image_image.url}}" alt="image" >
+           </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <h3 class="text-center" style="color:wheat;font-size:40px">{{image.name}}</h3>
+              <p class="text-center" style="color:wheat;font-size:35px">{{image.description}}</p>
+              <p class="text-center" style="color:white">Location taken : {{image.location}}</p>
+              <p class="text-center" style="color:white">Category : {{image.category}}</p>
+              <p class="text-center" style="color:white">Posted on :{{image.posted_date}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
