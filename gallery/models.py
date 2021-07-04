@@ -1,15 +1,17 @@
 from django.db import models
+import datetime as dt
 
 # Create your models here.
 class Image(models.Model):
     name = models.CharField(max_length =60)
     description = models.CharField(max_length =200)
     date = models.DateTimeField(auto_now_add=True)
-    date = models.DateTimeField(auto_now_add=True)
     pub_date = models.DateTimeField(auto_now_add=True)
     location = models.ForeignKey('Location', on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     Images_image = models.ImageField(upload_to = 'images/')
+    
+
     
     def save_image(self):
         self.save()
