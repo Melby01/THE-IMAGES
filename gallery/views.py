@@ -1,10 +1,28 @@
+from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
-from django.shortcuts import render, redirect
+from .models import Image,Location,Category
+from django.core.management import execute_from_command_line
+from .models import Image
+
 
 # Create your views here.
 def welcome(request):
     return render(request, 'welcome.html')
+def index(request):
+    '''
+    Method to return all images, locations, categories
+    '''
+    images = Image.objects.all()
+    location = Location.objects.all()
+    categories = Category.get_all_categories()
+    context = {
+        "images":images,
+        "location":location,
+        "categorie": categories,
+    }
+    
+    return render(request, 'all-images/welcome.html', context)
 
 def image_of_day(request):
     date = dt.date.today()
