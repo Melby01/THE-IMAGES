@@ -6,7 +6,7 @@
 <div class="container">
 
     <!-- Looping through images   -->
-    {% for image_item in image %}
+    {% for gallery_item in gallery %}
   
     <div class="row">
       <!-- displaying Images titles -->
@@ -15,7 +15,7 @@
       </div>
       <!--Display images  -->
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img src="{{image_item.image_image.url}}" class="img-responsive" alt="Image">
+        <img src="{{gallery_item.Images_image.url}}" class="img-responsive" alt="Image">
       </div>
     </div>
   
