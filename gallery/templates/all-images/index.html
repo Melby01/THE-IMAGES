@@ -14,29 +14,29 @@
 <section id="gallery">
     {% block content %}
     <div class="row container-fluid content">
-      {% for gallery_item in gallery %}
+      {% for gallery_item in images %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 thumbnails"> 
           <div class="card-body">
-              <img src="{{gallery_item.Images_image.url}}" class="img-fluid img-thumbnail img-responsive " data-toggle="modal" data-target="#{{image.id}}" alt="image">
+              <img src="{{gallery_item.Images_image.url}}" class="img-fluid img-thumbnail img-responsive " data-toggle="modal" data-target="#{{gallery_item.id}}" alt="image">
           <br>
           <hr>
             </div>
         </div>
       
-          <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal fade" id="{{gallery_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-body">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
   
-                  <h3 class="modal-title text-center" id="title">{{image.name}}</h3>
+                  <h3 class="modal-title text-center" id="title">{{gallery_item.name}}</h3>
   
                   <a href=""><img src="{{gallery_item.Images_image.url}}" class="img-responsive w-100 btn btn-outline-info" alt="image"></a>
                  
-                  <p class="text-center">{{image.description}}</p>
-                  <p>Location taken : {{image.location}}</p>
-                  <p>Category : {{image.category}}</p>
-                  <p>Posted on :{{image.pub_date}}</p>
+                  <p class="text-center">{{gallery_item.description}}</p>
+                  <p>Location taken : {{gallery_item.location}}</p>
+                  <p>Category : {{gallery_item.category}}</p>
+                  <p>Posted on :{{gallery_item.pub_date}}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="text" value="{{gallery_item.Images_image.url}}" id="copy" type="button" = "width:250px" class="form-control">Copy Link</button>

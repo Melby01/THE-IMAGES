@@ -9,7 +9,7 @@ class Image(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     location = models.ForeignKey('Location', on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    Images_image = models.ImageField(upload_to = 'images/')
+    Images_image = models.ImageField(upload_to = 'gallery/')
     
     def save_image(self):
         self.save()
@@ -36,7 +36,7 @@ class Image(models.Model):
     @classmethod
     def search_by_category(cls, category):
         images = cls.objects.filter(category__name__icontains=category)
-        return image 
+        return images
     
     @classmethod
     def filter_by_location(cls, location):

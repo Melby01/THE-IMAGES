@@ -22,7 +22,7 @@ def index(request):
         "category": categories,
     }
     
-    return render(request, 'all-images/welcome.html', context)
+    return render(request, 'all-images/index.html', context)
 
 def image_of_day(request):
     date = dt.date.today()
@@ -87,12 +87,12 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-news/search.html',{"message":message})
     
-def view_image(request,image_id):
+def view_image(request,gallery_id):
     '''
     Method to get image by id
     '''
     try:
-        image = Image.objects.get(id =  image_id)
+        image = Image.objects.get(id =  gallery_id)
     except DoesNotExist:
         raise Http404()
     return render(request, "all-images/view.html", {"gallery":image})
