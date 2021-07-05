@@ -31,7 +31,7 @@ def image_of_day(request):
     html = f'''
         <html>
             <body>
-                <h1>Images for {day} {date.day}-{date.month}-{date.year}</h1>
+                <h1>Images {day} {date.day}-{date.month}-{date.year}</h1>
             </body>
         </html>
             '''
@@ -68,7 +68,7 @@ def past_image(request,past_date):
     html = f'''
         <html>
             <body>
-                <h1>Image for {day} {date.day}-{date.month}-{date.year}</h1>
+                <h1>Images {day} {date.day}-{date.month}-{date.year}</h1>
             </body>
         </html>
             '''
